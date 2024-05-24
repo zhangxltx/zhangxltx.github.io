@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation</title>
+    <script>
+        function detectDevice() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+			document.getElementById("userA").innerHTML= userAgent;
+            if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i) || userAgent.match(/iPod/i)) {
+                
+                // iOS specific code here
+				document.getElementById("hh").innerHTML="iOS Installtion";
+				window.location.href="itms-services://?action=download-manifest&url=https://raw.githubusercontent.com/zhangxltx/OSP/main/osp.plist";
+				
+				
+            } else if (userAgent.match(/Android/i)) {
+                
+				document.getElementById("hh").innerHTML="android Installtion";
+				window.location.href="https://github.com/zhangxltx/OSP/raw/main/osp.apk";
+                // Android specific code here
+            } else {
+                
+				document.getElementById("hh").innerHTML="others Installtion";
+				
+            }
+        }
+        window.onload = detectDevice;
+    </script>
+</head>
+<body>
+    <h1 id="hh">Installation</h1>
+	
+	<div id="userA"></div>
+</body>
+</html>
